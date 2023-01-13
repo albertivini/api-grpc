@@ -1,32 +1,29 @@
-// notes.proto
 syntax = "proto3";
 
-service NoteService {
+service Notes {
   rpc List (Void) returns (NoteListResponse);
   rpc Find (NoteFindRequest) returns (NoteFindResponse);
 }
 
-// Entidades
-message Void {}
+// Entities
 message Note {
-    int32 id = 1;
-    string title = 2;
-    string description = 3;
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
 }
+
+message Void {}
 
 // Requests
 message NoteFindRequest {
-    int32 id = 1;
+  int32 id = 1;
 }
 
 // Responses
 message NoteFindResponse {
-    Note note = 1;
+  Note note = 1;
 }
-// response eh um objeto note do tipo Note
-
 
 message NoteListResponse {
-    repeated Note notes = 1;
+  repeated Note notes = 1;
 }
-// repeated = array de Note dentro do objeto notes
